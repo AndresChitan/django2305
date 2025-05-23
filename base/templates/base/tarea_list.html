@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista Pendientes</h1>
+    <a href="{% url 'crear-tarea' %}">Crear nueva tarea</a>
+    <table>
+        <th></th>
+        <tr>
+        <th>Elementos</th>
+        </tr>
+        {% for tarea in tareas %}
+        <tr>
+            <td>{{tarea.titulo}}</td>
+            <td><a href="{% url 'tarea' tarea.id %}"> Ver </a></td>
+            <td><a href="{% url 'editar-tarea' tarea.id %}"> Editar </a></td>
+            <td><a href="{% url 'eliminar-tarea' tarea.id %}"> Eliminar </a></td>
+        </tr>
+        {% empty %}
+        <h2>No hay Elementos en la lista</h2>
+        {% endfor %}
+
+    </table>
+    
+</body>
+</html>
