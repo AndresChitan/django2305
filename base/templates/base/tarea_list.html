@@ -6,6 +6,14 @@
     <title>Document</title>
 </head>
 <body>
+
+    {% if request.user.is_authenticated %}
+        <p>{{request}}</p>
+        <a href="">Salir</a>
+    {% else %}
+        <a href="">Ingresar Usuario</a>
+    <% enif %>
+
     <h1>Lista Pendientes</h1>
     <a href="{% url 'crear-tarea' %}">Crear nueva tarea</a>
     <table>
